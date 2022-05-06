@@ -46,7 +46,6 @@
     - host & containers
     - containers
 
-
 ### **Commands**
 * `docker` 
     - help
@@ -62,7 +61,7 @@
     - download an image from Docker Hub
 * `docker image` 
     - list all installed images
-* `docker run -d -p <host-port>:<docker-port> <image-name>:<image-tag>`
+* `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
     - to run a container from an image
     - creates container with a random name
     - -d -> to run in detarched mode
@@ -81,10 +80,17 @@
     - won't work if there is a running container 
 * `docker rm -f $(docker ps -aq)`
     - to force delete all containers even if some are running
-* `docker run --name <container-name> -d -p <host-port>:<docker-port> <image-name>:<image-tag>`
+* `docker run --name <container-name> -d -p <host-port>:<container-port> <image-name>:<image-tag>`
     - --name -> specify container name
 * `docker ps --format=<"format-result">`
-* ``
+* `docker run --name <container-name> -v $(pwd):<container-path>:<type> -d`
+    - mapping/mounting a volume to container
+    - pwd or dir
+    - type example:
+        - read and write is default
+        - ro -> read only
+* `docker exec -it <container-name> bash`
+    - enter container terminal
 * ``
 * ``
 * ``
