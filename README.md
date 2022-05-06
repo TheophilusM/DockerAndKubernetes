@@ -86,12 +86,13 @@
 * `docker run --name <container-name> -v $(pwd):<container-path>:<type> -d`
     - mapping/mounting a volume to container
     - pwd or dir
-    - type example:
+    - type for container example:
         - read and write is default
         - ro -> read only
 * `docker exec -it <container-name> bash`
     - enter container terminal
-* ``
+* `docker run --name <container-name> --volumes-from <container-name> -d`
+    - mapping/mounting a container to a container
 * ``
 * ``
 * ``
