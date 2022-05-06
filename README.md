@@ -47,7 +47,7 @@
     - containers
 
 ### **Dockerfile**
-* Contain information on how to create and run image
+* Contain information on how to create an image
 
 ### **Commands**
 * `docker` 
