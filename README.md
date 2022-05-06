@@ -46,6 +46,9 @@
     - host & containers
     - containers
 
+### **Dockerfile**
+* Contain information on how to create and run image
+
 ### **Commands**
 * `docker` 
     - help
@@ -61,6 +64,8 @@
     - download an image from Docker Hub
 * `docker image` 
     - list all installed images
+* `docker build --tag <image-namoe>:<image-tag> <dockerfile-path>`
+    - to run dockerfile to create an image
 * `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
     - to run a container from an image
     - creates container with a random name
@@ -93,7 +98,7 @@
     - enter container terminal
 * `docker run --name <container-name> --volumes-from <container-name> -d`
     - mapping/mounting a container to a container
-* ``
+
 * ``
 * ``
 
