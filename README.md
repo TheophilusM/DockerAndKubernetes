@@ -173,8 +173,9 @@
 * `docker-compose down -v`
     - stop docker-compose yml file
     - -v -> delete uneccessary volumns
-* ``
-* ``
+* `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+* `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
+    - up or down
 * ``
 
 

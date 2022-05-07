@@ -1,0 +1,9 @@
+version: '3'
+services:
+  node-api-app:
+    environment:
+      - NODE_ENV=production
+    command: node index.js
+  nginx-web-app:
+    environment:
+      - NODE_ENV=production

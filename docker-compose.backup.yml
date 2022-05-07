@@ -1,0 +1,28 @@
+version: '3'
+# containers - services
+services:
+  # containers
+  node-api-app:
+    # -> container configs
+    # path with Dockerfile
+    build: ./API
+    ports:
+      # list of ports
+      - '3000:3000'
+    volumes:
+      - ./API/:/app
+      - /app/node_modules
+    env_file:
+      - ./API/.env
+  nginx-web-app:
+    build: ./Web
+    ports:
+      - '8080:80'
+    volumes:
+      - ./Web/:/app
+      - /app/node_modules
+    environment:
+      - PORT=8080
+
+# run app:
+# docker-compose up -d

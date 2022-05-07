@@ -1,28 +1,20 @@
 version: '3'
-# containers - services
+# with shared properties
 services:
-  # containers
   node-api-app:
-    # -> container configs
-    # path with Dockerfile
     build: ./API
     ports:
-      # list of ports
       - '3000:3000'
-    volumes:
-      - ./API:/app
-      - /app/node_modules
     env_file:
       - ./API/.env
   nginx-web-app:
     build: ./Web
     ports:
       - '8080:80'
-    volumes:
-      - ./Web:/app
-      - /app/node_modules
     environment:
       - PORT=8080
+    command: npm start
 
 # run app:
-# docker-compose up -d
+# docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d 
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d 

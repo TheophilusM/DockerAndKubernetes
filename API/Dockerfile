@@ -19,8 +19,8 @@ ENV PORT=3000
 # EXPOSE $PORT
 EXPOSE ${PORT}
 # CMD node index.js
-# CMD ["node",  "index.js"]
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
+CMD ["node",  "index.js"]
 
 # to build image -> docker build -t web-api-image:latest .
 # to change tag version of duplicate image --from -> docker tag web-api-image:latest web-api-image:1
