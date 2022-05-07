@@ -13,9 +13,13 @@ ADD package*.json /app/
 RUN npm install
 ADD . .
 # COPY . ./
-EXPOSE 3000
+# ENV PORT 3000
+ENV PORT=3000
+# EXPOSE $PORT
+EXPOSE ${PORT}
 # CMD node index.js
-CMD ["node",  "index.js"]
+# CMD ["node",  "index.js"]
+CMD ["npm", "run", "dev"]
 
 # to build image -> docker build -t web-api-image:latest .
 # to change tag version of duplicate image --from -> docker tag web-api-image:latest web-api-image:1
