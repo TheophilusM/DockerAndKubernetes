@@ -2,6 +2,10 @@ version: '3'
 # Can override defaults
 services:
   node-api-app:
+    build:
+      context: ./API
+      args:
+        NODE_ENV: development
     volumes:
       - ./API/:/app
       - /app/node_modules
@@ -9,6 +13,10 @@ services:
       - NODE_ENV=development
     command: npm run dev
   nginx-web-app:
+    build:
+      context: ./Web
+      args:
+        NODE_ENV: development
     volumes:
       - ./Web/:/app
       - /app/node_modules

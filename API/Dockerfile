@@ -1,17 +1,23 @@
-# `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
+# -> `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
 
-# download node latest image version
+# -> download node latest image version
 FROM node:latest
 
-# download node latest image version using alpine
+# -> download node latest image version using alpine
 # FROM node:alpine
 
-# download node specific image version
+# -> download node specific image version
 # FROM node:16.13.2-alpine
 WORKDIR /app
 ADD package*.json /app/
 # COPY package*.json /app
-RUN npm install
+
+ARG NODE_ENV
+RUN if [ "$NODE_ENV" = "development"]; \
+    then npm install; \
+    else npm install --only=production; \
+    fi
+# RUN npm install
 ADD . .
 # COPY . ./
 # ENV PORT 3000
@@ -21,6 +27,7 @@ EXPOSE ${PORT}
 # CMD node index.js
 # CMD ["npm", "run", "dev"]
 CMD ["node",  "index.js"]
+
 
 # to build image -> docker build -t web-api-image:latest .
 # to change tag version of duplicate image --from -> docker tag web-api-image:latest web-api-image:1
