@@ -1,6 +1,13 @@
 version: '3'
 # with shared properties
 services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./ngnix/default.conf:/etc/nginx/conf.d/default.conf
+
   node-api-app:
     build: ./API
     ports:
@@ -24,17 +31,18 @@ services:
   mongodb:
     image: mongo
     container_name: mongodb
-    ports:
-      - 27017:27017
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
     volumes:
-      - mongo-db:/data/db
+      - mongo-db:/data
+
+  redis:
+    image: redis
 
 # all named volumes
 volumes:
-  mongo-db:
+  mongo-db: {}
 
 
 # run app:

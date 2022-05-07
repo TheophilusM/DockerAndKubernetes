@@ -198,4 +198,10 @@
 * `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --no-depends <container-name>`
     - --no-depends -> start only specified service/container excluding those it depends on
 
+### **Load Balancing**
+* Can use
+    - nginx
+    - hiproxy
+    - traffic
+
 # **Kubernetes**
