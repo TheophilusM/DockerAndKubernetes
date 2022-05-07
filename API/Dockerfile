@@ -1,19 +1,22 @@
 # `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
 
 # download node latest image version
-# FROM node:latest
+FROM node:latest
 
 # download node latest image version using alpine
 # FROM node:alpine
 
 # download node specific image version
-FROM node:16.13.2-alpine
+# FROM node:16.13.2-alpine
 WORKDIR /app
 ADD package*.json /app/
 RUN npm install
 ADD . .
-CMD node index.js
+# COPY . ./
+EXPOSE 3000
+# CMD node index.js
+CMD ["node",  "index.js"]
 
-# to create image -> docker build -t web-api-image:latest .
+# to build image -> docker build -t web-api-image:latest .
 # to change tag version of duplicate image --from -> docker tag web-api-image:latest web-api-image:1
 # to run container -> docker run --name web-api-container -d -p 3000:3000 node-web:latest
