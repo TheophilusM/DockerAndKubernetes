@@ -57,6 +57,33 @@
 * Allow controlling of the image version
 * Creating an image using same image name and version that already exist, will override existing images leaving them without a repository and tag
 
+### **Docker Registeries**
+* A computer server
+* Types based on access
+    - Public
+    - Private
+* Examples
+    - Docker Hub
+    - quay.ios
+    - Amazon ECR
+* Highly scalable server side application that stores and allows distribution of Docker images.
+* Used in CD/CI pipeline
+    - Continuous Delivery
+    - Continuous Intergration
+* To run an application
+* Pushing to Docker Hub repo
+    - Create public or private repo
+    - Create an image with relative docker repo name and tag
+        - `docker tag <my-local-image-name>:<my-local-image-tag> <docker-account-username>/<repository-name>:<tag-name>`
+        - can have more that one repositories to be pushed
+    - Push the repos to docker hub
+        - log into docker with username and password
+        - push the intended images
+        - `docker push <docker-account-username>/<repository-name>:<tag-name>`
+* Pulling from Docker Hub a repo
+    - `docker pull <docker-account-username>/<repository-name>:<tag-name>`
+        - omitting tag name will return the latest version
+
 ### **Commands**
 * `docker` 
     - help
@@ -110,6 +137,9 @@
     - mapping/mounting a container to a container
 * `docker tag <existing-image-name>:<existing-tag-version> <new-image-name>:<new-tag-version>`
     - image tag version from an existing image
+* `docker inspect <container-id _or_ container-name>`
+    - to show full details of a running container
 * ``
+
 
 # **Kubernetes**
