@@ -1,9 +1,9 @@
 # `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
 FROM node:latest
 WORKDIR /app
-ADD . /app 
-# or ADD . .
+ADD package*.json /app
 RUN npm install
+ADD . .
 CMD node index.js
 
 # to create image -> docker build -t web-api-image:latest .

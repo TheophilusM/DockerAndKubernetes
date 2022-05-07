@@ -32,6 +32,7 @@
         - _redis_
         - _ubuntu_
         - _mysql_
+    - docker utilize catching when building an image
 * Container
     - a running instance of an image
     - using a container running
