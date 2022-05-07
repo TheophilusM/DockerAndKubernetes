@@ -7,6 +7,9 @@ services:
       - '3000:3000'
     env_file:
       - ./API/.env
+    environment:
+      - MONGO_USER=rootuser
+      - MONGO_PASSWORD=rootpass
 
   nginx-web-app:
     build: ./Web

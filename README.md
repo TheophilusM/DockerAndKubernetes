@@ -98,6 +98,15 @@
     - `--env-file ./<file-name>`
     - e.g, `--env-file ./.env`
 
+
+
+
+### **Container Networks**
+* For network I created not defaults, can use container name for ip address
+* Uses DNS built into
+* can substitute a container _ip_address_ with its container _name_ to access the container from another **local** container
+* can use them to ping containers when in the exec mode of a container
+
 ### **Commands**
 * `docker` 
     - help
@@ -157,7 +166,7 @@
 * `docker tag <existing-image-name>:<existing-tag-version> <new-image-name>:<new-tag-version>`
     - image tag version from an existing image
 * `docker inspect <container-id _or_ container-name>`
-    - to show full details of a running container
+    - to show full details of a running container eg network settings
 * `docker logs -f <container-id _or_ container-name>`
     - displays all logs for a container running
     - -f -> to show logs in realtime
@@ -176,7 +185,9 @@
 * `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
 * `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
     - up or down
-* ``
-
+* `docker network ls`
+    - view networks created
+* `docker network inspect <docker-network-name>`
+    - info about a specific network
 
 # **Kubernetes**
