@@ -12,6 +12,7 @@ services:
     environment:
       - NODE_ENV=development
     command: npm run dev
+
   nginx-web-app:
     build:
       context: ./Web
@@ -22,3 +23,7 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+    
+  mongodb:
+    volumes:
+      - data:/data

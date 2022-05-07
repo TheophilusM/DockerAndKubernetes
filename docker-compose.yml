@@ -7,6 +7,7 @@ services:
       - '3000:3000'
     env_file:
       - ./API/.env
+
   nginx-web-app:
     build: ./Web
     ports:
@@ -14,6 +15,16 @@ services:
     environment:
       - PORT=8080
     command: npm start
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+
 
 # run app:
 # docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d 

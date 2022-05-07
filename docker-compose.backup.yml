@@ -4,8 +4,12 @@ services:
   # containers
   node-api-app:
     # -> container configs
-    # path with Dockerfile
-    build: ./API
+    # -> path with Dockerfile
+    # build: ./API
+    build:
+      context: ./API
+      args:
+        NODE_ENV: production
     ports:
       # list of ports
       - '3000:3000'
@@ -14,8 +18,12 @@ services:
       - /app/node_modules
     env_file:
       - ./API/.env
+
   nginx-web-app:
-    build: ./Web
+    build:
+      context: ./Web
+      args:
+        NODE_ENV: production
     ports:
       - '8080:80'
     volumes:
@@ -23,6 +31,18 @@ services:
       - /app/node_modules
     environment:
       - PORT=8080
+
+  mongodb:
+    # use image from docker hub
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
 
 # run app:
 # docker-compose up -d
