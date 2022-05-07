@@ -1,7 +1,8 @@
 # `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
-FROM node:latest
+# FROM node:latest
+FROM node:alpine
 WORKDIR /app
-ADD package*.json /app
+ADD package*.json /app/
 RUN npm install
 ADD . .
 CMD node index.js

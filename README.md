@@ -32,7 +32,9 @@
         - _redis_
         - _ubuntu_
         - _mysql_
-    - docker utilize catching when building an image
+    - docker utilize caching when building an image
+    - image size
+        - using **alpine** - small, simple and secure
 * Container
     - a running instance of an image
     - using a container running
@@ -63,6 +65,8 @@
     - list all containers' numeric IDs
 * `docker pull <image-name>` 
     - download an image from Docker Hub
+* `docker pull <image-name>:<alpine>`
+    - to pull docker image with alpine
 * `docker image` 
     - list all installed images
 * `docker build --tag <image-namoe>:<image-tag> <dockerfile-path>`
