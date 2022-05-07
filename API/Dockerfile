@@ -10,6 +10,7 @@ FROM node:latest
 # FROM node:16.13.2-alpine
 WORKDIR /app
 ADD package*.json /app/
+# COPY package*.json /app
 RUN npm install
 ADD . .
 # COPY . ./
