@@ -131,14 +131,24 @@
     - type for container example:
         - read and write is default
         - ro -> read only
-* `docker exec -it <container-name> bash`
+* `docker exec -it <container-id _or_ container-name> <cmd>`
     - enter container terminal
+    - -i -> interactive
+    - -t -> allocates a pseudo-TTY
+    - cmd -> can find the path using `docker inspect`
 * `docker run --name <container-name> --volumes-from <container-name> -d`
     - mapping/mounting a container to a container
 * `docker tag <existing-image-name>:<existing-tag-version> <new-image-name>:<new-tag-version>`
     - image tag version from an existing image
 * `docker inspect <container-id _or_ container-name>`
     - to show full details of a running container
+* `docker logs -f <container-id _or_ container-name>`
+    - displays all logs for a container running
+    - -f -> to show logs in realtime
+* ``
+* ``
+* ``
+* ``
 * ``
 
 
