@@ -164,7 +164,7 @@
 * `docekr volumes ls`
 * `docekr volume rm <volumn-name>`
 * `docekr volumes prune`
-    - to remove all unnecesary volumns
+    - to remove all unnecesary volumns for containers not running
 * `docker-compose up -d --build`
     - run docker-compose yml file
     - builds image if it doesn't exist using cache and then run the container
@@ -172,7 +172,7 @@
         - --build -> force image rebuild
 * `docker-compose down -v`
     - stop docker-compose yml file
-    - -v -> delete uneccessary volumns
+    - -v -> delete uneccessary volumns, even named anonymous volumns
 * `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
 * `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
     - up or down

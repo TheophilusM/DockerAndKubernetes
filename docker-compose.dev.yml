@@ -23,7 +23,3 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
-    
-  mongodb:
-    volumes:
-      - data:/data

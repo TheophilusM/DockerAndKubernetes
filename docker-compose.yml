@@ -24,6 +24,12 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    volumes:
+      - mongo-db:/data/db
+
+# all named volumes
+volumes:
+  mongo-db:
 
 
 # run app:
