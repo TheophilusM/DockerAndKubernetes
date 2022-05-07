@@ -51,10 +51,11 @@
 
 ### **Dockerfile**
 * Contain information on how to create an image
+* **dockerignore** file
 
 ### **Tags and Versiom**
 * Allow controlling of the image version
-* 
+* Creating an image using same image name and version that already exist, will override existing images leaving them without a repository and tag
 
 ### **Commands**
 * `docker` 
@@ -107,7 +108,8 @@
     - enter container terminal
 * `docker run --name <container-name> --volumes-from <container-name> -d`
     - mapping/mounting a container to a container
-* ``
+* `docker tag <existing-image-name>:<existing-tag-version> <new-image-name>:<new-tag-version>`
+    - image tag version from an existing image
 * ``
 
 # **Kubernetes**

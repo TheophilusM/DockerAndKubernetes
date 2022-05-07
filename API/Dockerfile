@@ -15,4 +15,5 @@ ADD . .
 CMD node index.js
 
 # to create image -> docker build -t web-api-image:latest .
+# to change tag version of duplicate image --from -> docker tag web-api-image:latest web-api-image:1
 # to run container -> docker run --name web-api-container -d -p 3000:3000 node-web:latest
