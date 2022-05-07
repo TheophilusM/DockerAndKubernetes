@@ -19,6 +19,9 @@ app.listen(port, () => {
     - npm i --save express
     - npm i nodemon --save-dev
   * env variable
-  * node index.js  
+  * run
+    - node index.js
+    - npm run dev
+    - npm start
 
 */
