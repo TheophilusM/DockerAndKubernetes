@@ -2,5 +2,5 @@
 FROM nginx:latest
 ADD . /usr/share/nginx/html
 
-# to create image -> docker build --tag nginx-web:latest .
-# to run container -> docker run -d -p 8080:80 nginx-web:latest
+# to create image -> docker build --tag nginx-web-image:latest .
+# to run container -> docker run -d -p 8080:80 nginx-web-container:latest
