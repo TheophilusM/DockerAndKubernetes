@@ -204,4 +204,7 @@
     - hiproxy
     - traffic
 
+### **Deployment**
+* Ubuntu server
+
 # **Kubernetes**
