@@ -43,6 +43,10 @@
         - `-p 8080:80`
         - can map more than 1 port
         - `-p 8080:80 -p 3000:80`
+    - control spin up process
+        - `depends_on` - control order but don't track status
+        - can handle using an orchestrator
+        - can handle in application
 
 ### **Volumes**
 * Allow sharing of data (file or folders) between:
@@ -189,5 +193,9 @@
     - view networks created
 * `docker network inspect <docker-network-name>`
     - info about a specific network
+* `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d <container-name>`
+    - start only specified service/container and also those it depends on
+* `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --no-depends <container-name>`
+    - --no-depends -> start only specified service/container excluding those it depends on
 
 # **Kubernetes**

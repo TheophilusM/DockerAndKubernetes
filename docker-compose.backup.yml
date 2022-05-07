@@ -18,6 +18,9 @@ services:
       - /app/node_modules
     env_file:
       - ./API/.env
+    # control spin up order
+    depends_on:
+      - mongodb
 
   nginx-web-app:
     build:

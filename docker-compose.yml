@@ -10,6 +10,8 @@ services:
     environment:
       - MONGO_USER=rootuser
       - MONGO_PASSWORD=rootpass
+    depends_on:
+      - mongodb
 
   nginx-web-app:
     build: ./Web
@@ -38,3 +40,6 @@ volumes:
 # run app:
 # docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d 
 # docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d 
+
+# to start specific services
+# docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d <container-name>
