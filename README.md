@@ -48,10 +48,12 @@
 * Allow sharing of data (file or folders) between:
     - host & containers
         - bind mount volumn
+        - anonymous volumns
     - containers
+* 
 
 ### **Dockerfile**
-* Contain information on how to create an image
+* Contain information on how to build an image
 * **dockerignore** file
 
 ### **Tags and Versiom**
@@ -85,6 +87,14 @@
     - `docker pull <docker-account-username>/<repository-name>:<tag-name>`
         - omitting tag name will return the latest version
 
+### **env variables**
+* Can be put in the Dockerfile
+* In command prompt:
+    - `--env PORT=3000`
+* Can use an env file
+    - `--env-file ./<file-name>`
+    - e.g, `--env-file ./.env`
+
 ### **Commands**
 * `docker` 
     - help
@@ -116,8 +126,9 @@
     - does not delete the container
 * `docker start <container-id _or_ container-name>` 
     - to start a container
-* `docker rm <container-id _or_ container-name>` 
+* `docker rm <container-id _or_ container-name> -fv` 
     - to delete container
+    - -fv -> to delete the volumns associated with the running container
 * `docker rm $(docker ps -aq)`
     - to delete all containers
     - won't work if there is a running container 
@@ -126,18 +137,19 @@
 * `docker run --name <container-name> -d -p <host-port>:<container-port> <image-name>:<image-tag>`
     - --name -> specify container name
 * `docker ps --format=<"format-result">`
-* `docker run --name <container-name> -v $(pwd):<container-folder-path>:<type> -d`
+* `docker run --name <container-name> -v $(pwd):<container-folder-path>:<type> -v /<container-workdir>/<folder-name> -d`
     - mapping/mounting a volume to container
-    - ${pwd} - poweshell or $(pwd) - mac/linux or %cd% -windows
+    - ${pwd} - poweshell or $(pwd) - mac/linux or %cd% - windows
     - type for container example:
         - read and write is default
-        - ro -> read only
+        - ro -> read only. Contain can create or edit files or folder
+    - folder-name -> won't be affected by the previous volumn
 * `docker exec -it <container-id _or_ container-name> <cmd>`
     - enter container terminal
     - -i -> interactive
     - -t -> allocates a pseudo-TTY
     - cmd -> can find the path using `docker inspect` or use `bash`
-* `docker run --name <container-name> --volumes-from <container-name> -d`
+* `docker run --name <container-name> --volumes-from <container-name> -d -e PORT=3000 -e ID=1A2B3C`
     - mapping/mounting a container to a container
 * `docker tag <existing-image-name>:<existing-tag-version> <new-image-name>:<new-tag-version>`
     - image tag version from an existing image
@@ -146,7 +158,10 @@
 * `docker logs -f <container-id _or_ container-name>`
     - displays all logs for a container running
     - -f -> to show logs in realtime
-* ``
+* `docekr volumes ls`
+* `docekr volume rm <volumn-name>`
+* `docekr volumes prune`
+    - to remove all unnecesary volumns
 * ``
 * ``
 * ``
