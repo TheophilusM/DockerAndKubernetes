@@ -1,6 +1,13 @@
 # `docker run -d -p <host-port>:<container-port> <image-name>:<image-tag>`
+
+# download node latest image version
 # FROM node:latest
-FROM node:alpine
+
+# download node latest image version using alpine
+# FROM node:alpine
+
+# download node specific image version
+FROM node:16.13.2-alpine
 WORKDIR /app
 ADD package*.json /app/
 RUN npm install

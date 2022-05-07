@@ -52,6 +52,10 @@
 ### **Dockerfile**
 * Contain information on how to create an image
 
+### **Tags and Versiom**
+* Allow controlling of the image version
+* 
+
 ### **Commands**
 * `docker` 
     - help
