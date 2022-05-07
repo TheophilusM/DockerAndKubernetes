@@ -56,6 +56,9 @@
 * Contain information on how to build an image
 * **dockerignore** file
 
+### **docker-compose.yml**
+* To run or stop docker containers
+
 ### **Tags and Versiom**
 * Allow controlling of the image version
 * Creating an image using same image name and version that already exist, will override existing images leaving them without a repository and tag
@@ -162,7 +165,14 @@
 * `docekr volume rm <volumn-name>`
 * `docekr volumes prune`
     - to remove all unnecesary volumns
-* ``
+* `docker-compose up -d --build`
+    - run docker-compose yml file
+    - builds image if it doesn't exist using cache and then run the container
+    - won't rebuild image if there is a change
+        - --build -> force image rebuild
+* `docker-compose down -v`
+    - stop docker-compose yml file
+    - -v -> delete uneccessary volumns
 * ``
 * ``
 * ``
