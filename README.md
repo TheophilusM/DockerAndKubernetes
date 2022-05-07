@@ -47,6 +47,7 @@
 ### **Volumes**
 * Allow sharing of data (file or folders) between:
     - host & containers
+        - bind mount volumn
     - containers
 
 ### **Dockerfile**
@@ -125,9 +126,9 @@
 * `docker run --name <container-name> -d -p <host-port>:<container-port> <image-name>:<image-tag>`
     - --name -> specify container name
 * `docker ps --format=<"format-result">`
-* `docker run --name <container-name> -v $(pwd):<container-path>:<type> -d`
+* `docker run --name <container-name> -v $(pwd):<container-folder-path>:<type> -d`
     - mapping/mounting a volume to container
-    - pwd or dir
+    - ${pwd} - poweshell or $(pwd) - mac/linux or %cd% -windows
     - type for container example:
         - read and write is default
         - ro -> read only
@@ -135,7 +136,7 @@
     - enter container terminal
     - -i -> interactive
     - -t -> allocates a pseudo-TTY
-    - cmd -> can find the path using `docker inspect`
+    - cmd -> can find the path using `docker inspect` or use `bash`
 * `docker run --name <container-name> --volumes-from <container-name> -d`
     - mapping/mounting a container to a container
 * `docker tag <existing-image-name>:<existing-tag-version> <new-image-name>:<new-tag-version>`
