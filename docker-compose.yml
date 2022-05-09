@@ -40,6 +40,11 @@ services:
   redis:
     image: redis
 
+  proxy:
+    image: proxy
+    ports:
+      - "80:80"
+
 # all named volumes
 volumes:
   mongo-db: {}
