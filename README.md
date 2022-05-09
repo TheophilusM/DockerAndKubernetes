@@ -199,8 +199,20 @@
     - start only specified service/container and also those it depends on
 * `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --no-depends <container-name>`
     - --no-depends -> start only specified service/container excluding those it depends on
+* `docker-compose scale <container-name>=<number-of-instanses>`
+    - Scale number of containers
+    - Use nginx for load balancing
+* ``
+    - 
+* ``
+    - 
+* ``
+    - 
+* ``
+    - 
 
 ### **Load Balancing**
+* Uses round robbing algorithm by default to perform load balancing
 * Can use
     - nginx
     - hiproxy
@@ -283,4 +295,3 @@
 * Kubectl
     - A CLI tool for kubernetes cluster
     - Access with the API server
-    
