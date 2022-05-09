@@ -32,9 +32,11 @@
         - _redis_
         - _ubuntu_
         - _mysql_
+        - _jeckins_
     - docker utilize caching when building an image
     - image size
         - using **alpine** - small, simple and secure
+    - quick boot-up speed
 * Container
     - a running instance of an image
     - using a container running
@@ -208,3 +210,68 @@
 * Ubuntu server
 
 # **Kubernetes**
+
+* A container orcherstration framework
+* Automate container management in different enviroments
+    - cloud
+    - physical
+    - hybrid
+* Reasons & Why's
+    - Increased use of containers resulting in the need for ease of management
+    - High availability
+    - Scalability
+    - Disaster recovery
+
+### **Kubernetes architecture**
+
+* Master node
+    - at leaset one
+    - Runs processes for running and managing the cluster
+        - API server (UI, API, CLI) process -> entry point into the cluster
+        - Controller manager process -> tracks cluster activities
+        - Scheduler - ensures Pods placement
+        - etcd - backing key-value store on snapshots
+    - need of multiple masters and a backup available aways
+* Worker nodes
+    - Each has a kubelet running on it for communication with other nodes or execute tasks
+    - Each has docker containers of dff applications deployed on it
+    - Much biger and more resources as to the master node
+* Virtual network
+
+### **Kubernetes components**
+
+* **Worker Node** setup
+    - Pod
+        - smallest unit, abstraction over container
+        - only interact with the kubernetes layer
+        - usually 1 app per pod
+        - each pod has an assigned IP address
+        - they can die very easily and the newly created is assigned a new IP address
+        - Each pod has a service assigned to it to manage the IP address if Pod dies
+        - External and internal services to determine access to the Pod
+        - Ingress to manage access requests
+    - Container
+* **ConfigMap**
+    - External configuration of the application
+    - To store configuration such as db-url
+* **Secret**
+    - store secret data
+    - base4 encode
+    - e.g, username, password, ssl cert...
+* **Data Storage**
+    - Restarting Node will result in data being lost
+    - Use of volumes
+    - Reference could be in a local machine or remote, outside the cluster
+    - Data will be now persistant
+* **Deployment & Stateful State**
+    - If Node cant be reached, thus need of a Pod clone connected to the same service
+    - Service can also act as a load balancer
+    - Done by deployment -> creation of one Pod and the scale them up/down
+    - abstraction of Pods
+* 
+* 
+* 
+* 
+
+### ****
+### ****
