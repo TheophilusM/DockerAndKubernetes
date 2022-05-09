@@ -240,7 +240,7 @@
 
 ### **Kubernetes components**
 
-* **Worker Node** setup
+* **Worker Node**
     - Pod
         - smallest unit, abstraction over container
         - only interact with the kubernetes layer
@@ -248,30 +248,39 @@
         - each pod has an assigned IP address
         - they can die very easily and the newly created is assigned a new IP address
         - Each pod has a service assigned to it to manage the IP address if Pod dies
-        - External and internal services to determine access to the Pod
-        - Ingress to manage access requests
+        - External and internal **services** to determine access to the Pod
+        - **Ingress** to manage access requests
     - Container
 * **ConfigMap**
     - External configuration of the application
     - To store configuration such as db-url
-* **Secret**
+* **Secrets**
     - store secret data
     - base4 encode
     - e.g, username, password, ssl cert...
 * **Data Storage**
     - Restarting Node will result in data being lost
-    - Use of volumes
+    - Use of **volumes**
     - Reference could be in a local machine or remote, outside the cluster
     - Data will be now persistant
-* **Deployment & Stateful State**
+* **Deployment & StatefulSet**
     - If Node cant be reached, thus need of a Pod clone connected to the same service
     - Service can also act as a load balancer
-    - Done by deployment -> creation of one Pod and the scale them up/down
-    - abstraction of Pods
-* 
-* 
-* 
-* 
+    - Done by deployment
+        - creation of one Pod and the scale them up/down
+        - abstraction of Pods
+    - StatefulSet
+        - for applications such as DB for also replication and scaling up/down with consideration of data consistency
+        - relatively challenging to setup hence use for remote staorage at times
 
-### ****
-### ****
+### **Minikube & Kubectl**
+
+* Minikube
+    - A to to test on local machine
+    - Require a hypervisor
+        - _Docker, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation_
+    - 1 node kubernetes cluster
+* Kubectl
+    - A CLI tool for kubernetes cluster
+    - Access with the API server
+    
