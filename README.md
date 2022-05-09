@@ -202,14 +202,6 @@
 * `docker-compose scale <container-name>=<number-of-instanses>`
     - Scale number of containers
     - Use nginx for load balancing
-* ``
-    - 
-* ``
-    - 
-* ``
-    - 
-* ``
-    - 
 
 ### **Load Balancing**
 * Uses round robbing algorithm by default to perform load balancing
