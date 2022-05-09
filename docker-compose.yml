@@ -11,6 +11,7 @@ services:
       - node-api-app
       - nginx-web-app
       - mongodb
+    restart: on-failure
 
   node-api-app:
     build: ./API
@@ -23,6 +24,7 @@ services:
       - MONGO_PASSWORD=rootpass
     depends_on:
       - mongodb
+    restart: on-failure
 
   nginx-web-app:
     build: ./Web
@@ -31,6 +33,7 @@ services:
     environment:
       - PORT=8080
     command: npm start
+    restart: on-failure
 
   mongodb:
     image: mongo
@@ -40,6 +43,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
     volumes:
       - mongo-db:/data
+    restart: on-failure
 
   redis:
     image: redis
